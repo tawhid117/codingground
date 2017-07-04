@@ -1,0 +1,3 @@
+/*
+I started working on this project to learn Java from a COURSERA tutorial by Stanford University. My future plan is to apply the understanding of real time maps for android OS and build a vehicle tracking prototype for applications like DB Bahn / VBB etc.
+*/
