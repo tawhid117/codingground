@@ -1,3 +1,7 @@
 # codingground
-Here I keep my hobby and tutorial projects. See wiki for short description and links.]
+This is my playgroud where I keep my hobby and tutorial projects:
+
 (https://github.com/tawhid117/codingground/wiki)
+
+## Find vegetable prices MeenaClick and Shawpno pages and compare them.
+(https://github.com/tawhid117/codingground/tree/master/crawling_ecom)
