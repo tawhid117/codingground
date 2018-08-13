@@ -43,4 +43,7 @@ f.close()
 week_16=tree.xpath('//*[@id="post-3198"]/div/p[16]/text()')
 for i in week_16:
 	print(i)
+for i in range(1,12):
+	x = tree.xpath('//*[@id="post-3198"]/div/h2['+ str(i) + ']/text()')
+	print(x)	
 
