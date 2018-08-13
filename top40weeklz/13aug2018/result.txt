@@ -1,0 +1,2 @@
+<p class="close-tagline" id="tagline">
+					The Weekly Top 40 1955-2017				</p>
