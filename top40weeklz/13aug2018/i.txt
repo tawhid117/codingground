@@ -1,0 +1,2 @@
+The .txt files contain different results got from using BeautifulSoup. However, the successful way was using xpath, which could
+show list in a user friendly way. It was not saved as .txt file.
