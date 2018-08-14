@@ -1,0 +1,147 @@
+<html>
+<head>
+	<title>Adding or moving markers on a Leaflet map</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="http://localhost:8000/leaflet/leaflet.css" />
+	<script src="http://localhost:8000/leaflet/leaflet.js"></script>
+	
+	<script type="text/javascript" src="http://localhost:8000/Leaflet.Coordinates-0.1.3/dist/Leaflet.Coordinates-0.1.3.min.js"></script>
+	<link rel="stylesheet" href="http://localhost:8000/Leaflet.Coordinates-0.1.3/dist/Leaflet.Coordinates-0.1.3.css"/>
+	
+	<style type="text/css">
+	 	html, body, #map{
+	 		height: 100%;
+	 		padding: 0;
+	 		margin: 0;
+	 	}
+	</style>
+
+</head>
+<body>
+	<input type="button" value="Refresh Page" onClick="window.location.reload()">
+	<button onclick="myFunction()">Try it</button>
+    <font size = 20><b><div id="test"></div></b></font>
+    <div class="input-resp">
+        <span>
+            <input  class="textbox" id="num" name="count" type="text" size="50" maxlength="30"  value="" />
+        </span>
+    </div>
+    <button onclick="document.getElementById('demo').innerHTML=Date()">The time is?</button> <p id="demo"></p>
+    <br><div id="new_var"></div> 
+    <br><br><br><br><br>
+	<div id="map"></div>
+    
+    after MAP
+	
+			
+
+	<script type="text/javascript">
+        var new_var = '9';
+        document.getElementById("new_var").innerHTML = new_var;
+
+
+        
+		var options = {
+			center: [23.10418, 90.62987],
+			zoom: 10
+		}
+		
+		var map = L.map('map', options);
+
+		L.tileLayer('http://localhost:8000/OSM/{z}_{x}_{y}.png', {attribution: 'OSM'})
+		.addTo(map);
+
+
+        var icon_Url = 'images/s2.png'		
+        document.getElementById('num').onkeyup = function() {
+        var icon_Url = parseString(this.value);
+        }
+        function myFunction() {icon_Url = 'images/s2.png'; alert(icon_Url); 
+                               new_var=10;document.getElementById("new_var").innerHTML = icon_Url;
+                              var txtFile = "c:/test.txt";
+                                var file = new File(txtFile);
+                                var str = "My string of text";
+
+                                file.open("w"); // open file with write access
+                                file.writeln("First line of text");
+                              }
+		var smallIcon = new L.Icon({
+		 iconSize: [27, 27],
+		 iconAnchor: [13, 27],
+		 popupAnchor:  [1, -24],
+		 iconUrl: icon_Url
+		});
+		var customMarker = L.marker([23.0, 90.0], {icon: smallIcon}).addTo(map)
+		var danda = new L.control.scale().addTo(map);
+		map.attributionControl.addAttribution('hello there!');
+		
+		L.control.coordinates().addTo(map);
+		//add configured controls
+		
+		
+		map.on('click', 
+		 	function(e){
+		 		var coord = e.latlng.toString().split(',');
+		 		var lat = coord[0].split('(');
+		 		var lng = coord[1].split(')');
+		 		//alert("You clicked the map at LAT: " + lat[1] + " and LONG: " + lng[0]);
+		 		var myMarker2 = L.marker(e.latlng, {icon: smallIcon}).addTo(map);
+                
+                document.getElementById("test").innerHTML = e.latlng  ;
+		 	});
+			
+
+
+		var myMarker = L.marker([23.10418, 90.0], {title: "MyPoint", alt: "The Big I", draggable: true})
+		.addTo(map)
+		.on('dragend', function() {
+			var coord = String(myMarker.getLatLng()).split(',');
+			console.log(coord);
+			var lat = coord[0].split('(');
+			console.log(lat);
+			var lng = coord[1].split(')');
+			console.log(lng);
+			myMarker.bindPopup("Moved to: " + lat[1] + ", " + lng[0] + ".");
+		});
+		
+		map.on('dblclick', 
+		 	function(e){
+		 		map.removeLayer(myMarker);
+		 	});
+		
+
+
+		var myMarker2 = L.marker([23.50418, 90.0], {title: "MyPoint", alt: "The Big I", draggable: true})
+		.addTo(map)
+		.on('dragend', function() {
+			var coord = String(myMarker2.getLatLng()).split(',');
+			console.log(coord);
+			var lat = coord[0].split('(');
+			console.log(lat);
+			var lng = coord[1].split(')');
+			console.log(lng);
+			myMarker2.bindPopup("Moved to: " + lat[1] + ", " + lng[0] + ".");
+		});
+        
+var MyControl = L.Control.extend({
+     options: {
+         position: 'topright'
+     },
+
+     onAdd: function (map) {
+         // create the control container with a particular class name
+         var container = L.DomUtil.create('div', 'my-custom-control');
+
+         // ... initialize other DOM elements, add listeners, etc.
+
+         return container;
+     }
+ });
+
+ map.addControl(new MyControl());
+
+		
+	</script>
+
+</body>
+</html>

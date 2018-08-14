@@ -1,0 +1,19 @@
+Failed JS data Xfer:
+http://jsfiddle.net/v4kSN/2/
+
+JS Cheat:
+https://websitesetup.org/javascript-cheat-sheet/
+
+custom marker:
+https://gis.stackexchange.com/questions/179925/leaflet-geojson-changing-the-default-blue-marker-to-other-png-files
+
+
+leaflet-angular (path, delete layer):
+http://tombatossals.github.io/angular-leaflet-directive/examples/0000-viewer.html#/basic/access-leaflet-object-example
+
+
+co-ordinates:
+https://github.com/MrMufflon/Leaflet.Coordinates/tree/0.1.3
+
+Delete marker:
+http://jsfiddle.net/kedar2a/5VLJU/8/
